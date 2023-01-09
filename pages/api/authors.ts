@@ -23,7 +23,10 @@ export const authorDetails = ({
 	const dataPreparation = database["authors:"].map((items) => {
 		return {
 			...items,
-			image: replacePublic(items.image, `/`),
+			image: replacePublic(
+				items.image,
+				`http://${process.env.BASE_URL}/`
+			),
 		};
 	});
 	if (authorId) {
