@@ -1,11 +1,9 @@
-import { Icon } from "@iconify/react";
-import { Button, Card } from "flowbite-react";
+import { Card } from "flowbite-react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "../../../components/atoms";
 import { PageLayout } from "../../../components/organisms";
-import { lenSlice } from "../../../helper";
 
 const AuthorPage = () => {
 	return (

@@ -25,6 +25,7 @@ export const PageLayout = ({ children }: IPageLayout) => {
 			</div>
 			<main className="container mt-20">{children}</main>
 			<div className="static bottom-0">
+				{/* <div className="fixed w-full bottom-0"> */}
 				<Footer />
 			</div>
 		</>
