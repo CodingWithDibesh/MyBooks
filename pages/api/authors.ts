@@ -15,7 +15,6 @@ export default function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<Data[]>
 ) {
-	console.log(req.query);
 	const dataPreparation = database["authors:"].map((items) => {
 		return {
 			...items,
