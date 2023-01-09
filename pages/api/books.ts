@@ -40,6 +40,8 @@ const getAllBooks = (): IBook[] => {
 				newArr;
 				// @ts-ignore
 				delete newArr.authorId;
+				// @ts-ignore
+				delete newArr.author.authorsBooks;
 				return newArr;
 			})
 	);

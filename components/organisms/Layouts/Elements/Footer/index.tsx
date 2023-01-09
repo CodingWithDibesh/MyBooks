@@ -4,7 +4,7 @@ import Link from "next/link";
 export const Footer = () => {
 	return (
 		<>
-			<FT container={true} className="fixed bottom-0">
+			<FT container={true}>
 				<div className="w-full">
 					<div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
 						<div>
