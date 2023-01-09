@@ -1,20 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import database from "../../data/db.json";
-import { replacePublic } from "../../helper";
+import { IResponse, replacePublic, responseHandler } from "../../helper";
 
-type Data = {
+export interface IAuthor {
 	id: number;
 	name: string;
 	books: number;
-	bestSelling: string[];
+	bestSeller: string[];
 	image: string;
 	bio: string[];
-};
+}
 
-export default function handler(
-	req: NextApiRequest,
-	res: NextApiResponse<Data[]>
-) {
+interface IAuthorConfig {
+	authorId?: number;
+	authorName?: string;
+}
+
+export const authorDetails = ({
+	authorId,
+	authorName,
+}: IAuthorConfig = {}): IAuthor[] => {
 	const dataPreparation = database["authors:"].map((items) => {
 		return {
 			...items,
@@ -24,20 +29,33 @@ export default function handler(
 			),
 		};
 	});
+	if (authorId) {
+		return dataPreparation.filter((item) => {
+			return item.id === authorId;
+		});
+	}
+	if (authorName) {
+		return dataPreparation.filter((item) => {
+			return item.name === authorName;
+		});
+	}
+	return dataPreparation;
+};
+
+export default function handler(
+	req: NextApiRequest,
+	res: NextApiResponse<IResponse<IAuthor>>
+) {
 	if (req.query.id) {
 		res.status(200).json(
-			dataPreparation.filter((item) => {
-				return item.id === Number(req.query.id);
-			})
+			responseHandler(authorDetails({ authorId: Number(req.query.id) }))
 		);
 		return;
 	} else if (req.query.name) {
 		res.status(200).json(
-			dataPreparation.filter((item) => {
-				return item.name === req.query.name;
-			})
+			responseHandler(authorDetails({ authorName: `${req.query.name}` }))
 		);
 		return;
 	}
-	res.status(200).json(dataPreparation);
+	res.status(200).json(responseHandler(authorDetails()));
 }

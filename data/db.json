@@ -4,7 +4,7 @@
             "id": 1,
             "name": "Robert T. Kiyosaki",
             "books": 26,
-            "bestSelling": [
+            "bestSeller": [
                 "Rich Dad Poor Dad"
             ],
             "image": "/public/images/Robert_T_Kiyosaki/Robert_T_Kiyosaki.jpg",
@@ -17,7 +17,7 @@
             "id": 2,
             "name": "J. K. Rowling",
             "books": 19,
-            "bestSelling": [
+            "bestSeller": [
                 "Harry Potter series"
             ],
             "image": "/public/images/JK_Rowling/JK_Rowling.jpg",
@@ -30,7 +30,7 @@
             "id": 3,
             "name": "Stan Lee",
             "books": 3600,
-            "bestSelling": [
+            "bestSeller": [
                 "Spider-Man",
                 "The X-Men",
                 "The Avengers",
