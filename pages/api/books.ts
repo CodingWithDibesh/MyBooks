@@ -28,10 +28,7 @@ const getAllBooks = (): IBook[] => {
 			.map((items) => {
 				return {
 					...items,
-					image: replacePublic(
-						items.image,
-						`http://${process.env.BASE_URL}/`
-					),
+					image: replacePublic(items.image, `/`),
 				};
 			})
 			// Fetch all Author details and bind with book
