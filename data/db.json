@@ -11,6 +11,23 @@
             "bio": [
                 "Robert Toru Kiyosaki (born April 8, 1947) is an American entrepreneur, businessman and author. Kiyosaki is the founder of Rich Global LLC and the Rich Dad Company, a private financial education company that provides personal finance and business education to people through books and videos. The company's main revenues come from franchisees of the Rich Dad seminars that are conducted by independent individuals using Kiyosaki's brand name for a fee. He is also the creator of the Cashflow board and software games to educate adults and children about business and financial concepts.",
                 "Kiyosaki is the author of more than 26 books, including the international self-published personal finance Rich Dad Poor Dad series of books which has been translated into 51 languages and sold over 41 million copies worldwide. He has been criticized for advocating practices of debatable legality perceived as 'get rich quick' philosophy.Kiyosaki is the subject of a class action suit filed by people who attended his seminars and has been the subject of two investigative documentaries by CBC Canada and WTAE USA. Kiyosaki's company, Rich Global LLC, filed for bankruptcy in 2012."
+            ],
+            "authorsBooks": [
+                {
+                    "id": 1,
+                    "title": "Rich Dad Poor Dad",
+                    "image": "/images/authors/Robert_T_Kiyosaki/Rich-Dad-Poor-Dad.jpg"
+                },
+                {
+                    "id": 2,
+                    "title": "The Guide To Investing",
+                    "image": "/images/authors/Robert_T_Kiyosaki/Guide_To_Investing.jpeg"
+                },
+                {
+                    "id": 3,
+                    "title": "Rich Dad's CASHFLOW Quadrant",
+                    "image": "/images/authors/Robert_T_Kiyosaki/Cashflow_Quadrant.jpg"
+                }
             ]
         },
         {
@@ -24,6 +41,18 @@
             "bio": [
                 "Joanne Rowling, better known by her pen name J. K. Rowling, is a British writer best known as the author of the Harry Potter fantasy series.",
                 "The books are the best-selling book series in history and have won multiple awards. They are the basis of a popular film series, in which Rowling had overall approval on the scripts and was a producer on the final films. Rowling had supported multiple charities, including Comic Relief, One Parent Families, and Multiple Sclerosis Society of Great Britain, as well as launching her own charity, Lumos."
+            ],
+            "authorsBooks": [
+                {
+                    "id": 1,
+                    "title": "Harry Potter and the Philosopher's Stone",
+                    "image": "/images/authors/JK_Rowling/Harry_Potter_and_the_Philosopher's_Stone_Book.jpg"
+                },
+                {
+                    "id": 2,
+                    "title": "Harry Potter and the Prisoner of Azkaban",
+                    "image": "/images/authors/JK_Rowling/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg"
+                }
             ]
         },
         {
@@ -40,6 +69,28 @@
             "bio": [
                 "Stan Lee was a legendary comic book writer and editor, and the former president and chairman of Marvel Comics.",
                 "He is best known for co-creating many of the most popular superheroes in the Marvel Universe, including Spider-Man, the X-Men, the Avengers, and the Fantastic Four. Lee was born in New York City in 1922, and he began working in the comic book industry in 1939. He worked on many popular comics throughout the 1940s and 1950s, and in the 1960s he helped to revitalize Marvel Comics with a series of groundbreaking titles that introduced complex characters and storylines. Lee continued to work in the comic book industry until his death in 2018, and his contributions to the medium have been recognized with numerous awards and accolades."
+            ],
+            "authorsBooks": [
+                {
+                    "id": 1,
+                    "title": "Spider-Man",
+                    "image": "/images/authors/Stan_Lee/Spider-Man.jpg"
+                },
+                {
+                    "id": 2,
+                    "title": "The X-Men",
+                    "image": "/images/authors/Stan_Lee/The_X_Man.jpg"
+                },
+                {
+                    "id": 3,
+                    "title": "The Avengers",
+                    "image": "/images/authors/Stan_Lee/The_Avengers.jpg"
+                },
+                {
+                    "id": 4,
+                    "title": "The Fantastic Four",
+                    "image": "/images/authors/Stan_Lee/The_Fantastic_Four.jpg"
+                }
             ]
         }
     ],

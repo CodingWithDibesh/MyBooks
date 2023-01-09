@@ -9,6 +9,11 @@ export interface IAuthor {
 	bestSeller: string[];
 	image: string;
 	bio: string[];
+	authorsBooks?: {
+		id: number;
+		title: string;
+		image: string;
+	}[];
 }
 
 interface IAuthorConfig {

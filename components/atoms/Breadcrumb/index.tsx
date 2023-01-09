@@ -6,7 +6,7 @@ export const Breadcrumb = ({
 	itemName,
 	category,
 }: {
-	itemName: string;
+	itemName?: string;
 	category: {
 		name: string;
 		url: string;
