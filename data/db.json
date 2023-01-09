@@ -7,7 +7,7 @@
             "bestSeller": [
                 "Rich Dad Poor Dad"
             ],
-            "image": "/public/images/Robert_T_Kiyosaki/Robert_T_Kiyosaki.jpg",
+            "image": "/public/images/authors/Robert_T_Kiyosaki/Robert_T_Kiyosaki.jpg",
             "bio": [
                 "Robert Toru Kiyosaki (born April 8, 1947) is an American entrepreneur, businessman and author. Kiyosaki is the founder of Rich Global LLC and the Rich Dad Company, a private financial education company that provides personal finance and business education to people through books and videos. The company's main revenues come from franchisees of the Rich Dad seminars that are conducted by independent individuals using Kiyosaki's brand name for a fee. He is also the creator of the Cashflow board and software games to educate adults and children about business and financial concepts.",
                 "Kiyosaki is the author of more than 26 books, including the international self-published personal finance Rich Dad Poor Dad series of books which has been translated into 51 languages and sold over 41 million copies worldwide. He has been criticized for advocating practices of debatable legality perceived as 'get rich quick' philosophy.Kiyosaki is the subject of a class action suit filed by people who attended his seminars and has been the subject of two investigative documentaries by CBC Canada and WTAE USA. Kiyosaki's company, Rich Global LLC, filed for bankruptcy in 2012."
@@ -20,7 +20,7 @@
             "bestSeller": [
                 "Harry Potter series"
             ],
-            "image": "/public/images/JK_Rowling/JK_Rowling.jpg",
+            "image": "/public/images/authors/JK_Rowling/JK_Rowling.jpg",
             "bio": [
                 "Joanne Rowling, better known by her pen name J. K. Rowling, is a British writer best known as the author of the Harry Potter fantasy series.",
                 "The books are the best-selling book series in history and have won multiple awards. They are the basis of a popular film series, in which Rowling had overall approval on the scripts and was a producer on the final films. Rowling had supported multiple charities, including Comic Relief, One Parent Families, and Multiple Sclerosis Society of Great Britain, as well as launching her own charity, Lumos."
@@ -36,7 +36,7 @@
                 "The Avengers",
                 "The Fantastic Four"
             ],
-            "image": "/public/images/Stan_Lee/Stan_Lee.jpeg",
+            "image": "/public/images/authors/Stan_Lee/Stan_Lee.jpeg",
             "bio": [
                 "Stan Lee was a legendary comic book writer and editor, and the former president and chairman of Marvel Comics.",
                 "He is best known for co-creating many of the most popular superheroes in the Marvel Universe, including Spider-Man, the X-Men, the Avengers, and the Fantastic Four. Lee was born in New York City in 1922, and he began working in the comic book industry in 1939. He worked on many popular comics throughout the 1940s and 1950s, and in the 1960s he helped to revitalize Marvel Comics with a series of groundbreaking titles that introduced complex characters and storylines. Lee continued to work in the comic book industry until his death in 2018, and his contributions to the medium have been recognized with numerous awards and accolades."
@@ -48,7 +48,7 @@
             "id": 1,
             "authorId": 1,
             "title": "Rich Dad Poor Dad",
-            "image": "/public/images/Robert_T_Kiyosaki/Rich-Dad-Poor-Dad.jpg",
+            "image": "/public/images/authors/Robert_T_Kiyosaki/Rich-Dad-Poor-Dad.jpg",
             "summary": "Rich Dad Poor Dad is a personal finance book that tells the story of the author's two fathers: his biological father, who was highly educated but financially unsuccessful, and his friend's father, who was less educated but financially successful. Through this comparison, Kiyosaki discusses the importance of financial education and the role it plays in building wealth. The book has become a bestseller and has been translated into multiple languages.",
             "genera": [
                 "Personal finance",
@@ -61,7 +61,7 @@
             "id": 2,
             "authorId": 1,
             "title": "The Guide To Investing",
-            "image": "/public/images/Robert_T_Kiyosaki/Guide_To_Investing.jpeg",
+            "image": "/public/images/authors/Robert_T_Kiyosaki/Guide_To_Investing.jpeg",
             "summary": "Rich Dad's Guide to Investing is a personal finance book that provides readers with a new perspective on investing and building wealth. The book covers a range of topics, including the importance of financial education, the role of the stock market in building wealth, the different types of assets that can be owned, and how to create a financial plan that works for you. Kiyosaki emphasizes the importance of taking control of your financial future and investing in assets that will generate passive income and grow in value over time. He also discusses the importance of diversification, risk management, and the role of entrepreneurship in building wealth.",
             "genera": [
                 "Personal finance",
@@ -74,7 +74,7 @@
             "id": 3,
             "authorId": 1,
             "title": "Rich Dad's CASHFLOW Quadrant",
-            "image": "/public/images/Robert_T_Kiyosaki/Cashflow_Quadrant.jpg",
+            "image": "/public/images/authors/Robert_T_Kiyosaki/Cashflow_Quadrant.jpg",
             "summary": "Rich Dad's CASHFLOW Quadrant is a follow-up to Rich Dad Poor Dad and focuses on the different ways people can make money and build wealth. Kiyosaki divides people into four categories based on how they generate income: employees, self-employed, business owners, and investors. He discusses the pros and cons of each quadrant and encourages readers to strive for financial independence by becoming a business owner or investor.",
             "genera": [
                 "Personal finance",
@@ -87,7 +87,7 @@
             "id": 4,
             "authorId": 1,
             "title": "Rich Dad's Rich Kid Smart Kid",
-            "image": "/public/images/Robert_T_Kiyosaki/Rich_Kid_Smart_Kid.jpg",
+            "image": "/public/images/authors/Robert_T_Kiyosaki/Rich_Kid_Smart_Kid.jpg",
             "summary": "'Rich Dad's Rich Kid Smart Kid' is a personal finance book for parents and children. It provides practical advice and strategies for teaching children about money and financial responsibility at a young age. The book covers topics such as saving, investing, and budgeting, and includes activities and games to help children learn about money",
             "genera": [
                 "Personal finance",
@@ -100,7 +100,7 @@
             "id": 5,
             "authorId": 2,
             "title": "Harry Potter and the Philosopher's Stone",
-            "image": "/public/images/JK_Rowling/Harry_Potter_and_the_Philosopher's_Stone_Book.jpg",
+            "image": "/public/images/authors/JK_Rowling/Harry_Potter_and_the_Philosopher's_Stone_Book.jpg",
             "summary": "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright. From the surprising way he is greeted by a lovable giant, to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and closer to his own noble destiny.",
             "genera": [
                 "Fantasy",
@@ -113,7 +113,7 @@
             "id": 6,
             "authorId": 2,
             "title": "Harry Potter and the Prisoner of Azkaban",
-            "image": "/public/images/JK_Rowling/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
+            "image": "/public/images/authors/JK_Rowling/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg",
             "summary": "For twelve long years, the dread fortress of Azkaban held an infamous prisoner named Sirius Black. Convicted of killing thirteen people with a single curse, he was said to be the heir apparent to the Dark Lord, Voldemort. Now he has escaped, leaving only two clues as to where he might be headed: Harry Potter's defeat of You-Know-Who was Black's downfall as well. And the Azkaban guards heard Black muttering in his sleep, 'He's at Hogwarts... he's at Hogwarts.' Harry Potter isn't safe, not even within the walls of his magical school, surrounded by his friends. Because on top of it all, there may well be a traitor in their midst.",
             "genera": [
                 "Fantasy",
@@ -126,7 +126,7 @@
             "id": 7,
             "authorId": 3,
             "title": "Spider-Man",
-            "image": "/public/images/Stan_Lee/Spider-Man.jpg",
+            "image": "/public/images/authors/Stan_Lee/Spider-Man.jpg",
             "summary": "Spider-Man is a superhero created by writer Stan Lee and artist Steve Ditko. He first appeared in Amazing Fantasy #15 in 1962. Spider-Man, whose real name is Peter Parker, is a high school student who was bitten by a radioactive spider and gained superhuman strength, the ability to stick to walls and ceilings, and heightened senses. He uses his powers to protect his neighborhood as Spider-Man, and to try to live a normal life as Peter Parker. Spider-Man is one of the most popular and enduring characters in the Marvel Universe, and he has appeared in numerous comics, movies, television shows, and other media.",
             "genera": [
                 "Science fiction",
@@ -139,7 +139,7 @@
             "id": 8,
             "authorId": 3,
             "title": "The X-Men",
-            "image": "/public/images/Stan_Lee/The_X_Man.jpg",
+            "image": "/public/images/authors/Stan_Lee/The_X_Man.jpg",
             "summary": "The X-Men are a team of superheroes created by writer Stan Lee and artist Jack Kirby. They first appeared in The X-Men #1 in 1963. The X-Men are mutants, humans born with extraordinary powers, who must fight for acceptance and survival in a world that hates and fears them. Led by Professor Charles Xavier, the X-Men use their powers to protect a world that hates and fears them, and to prevent the destruction of all mutants. The X-Men have become one of the most popular and enduring franchises in the Marvel Universe, and they have appeared in numerous comics, movies, television shows, and other media.",
             "genera": [
                 "Science fiction",
@@ -152,7 +152,7 @@
             "id": 9,
             "authorId": 3,
             "title": "The Avengers",
-            "image": "/public/images/Stan_Lee/The_Avengers.jpg",
+            "image": "/public/images/authors/Stan_Lee/The_Avengers.jpg",
             "summary": "The Avengers are a team of superheroes created by writer Stan Lee and artist Jack Kirby. They first appeared in The Avengers #1 in 1963. The Avengers are a diverse group of superheroes who join forces to protect the world from threats that no single hero could handle alone. The team has included many of the most popular and iconic characters in the Marvel Universe, including Iron Man, Thor, the Hulk, and Captain America. The Avengers have become one of the most popular and successful franchises in the Marvel Universe, and they have appeared in numerous comics, movies, television shows, and other media.",
             "genera": [
                 "Science fiction",
@@ -165,7 +165,7 @@
             "id": 10,
             "authorId": 3,
             "title": "The Fantastic Four",
-            "image": "/public/images/Stan_Lee/The_Fantastic_Four.jpg",
+            "image": "/public/images/authors/Stan_Lee/The_Fantastic_Four.jpg",
             "summary": "The Fantastic Four are a team of superheroes created by writer Stan Lee and artist Jack Kirby. They first appeared in The Fantastic Four #1 in 1961. The Fantastic Four are a team of adventurers who gain superhuman abilities after being exposed to cosmic radiation. The team consists of Mr. Fantastic, who can stretch his body to incredible lengths; the Invisible Woman, who can turn invisible and generate force fields; the Human Torch, who can generate flames and fly; and the Thing, who is super strong and made of rock-like material. The Fantastic Four are some of the earliest and most iconic characters in the Marvel Universe, and they have appeared in numerous comics, movies, television shows, and other media.",
             "genera": [
                 "Science fiction",

@@ -23,3 +23,6 @@ export const responseHandler = (response: any, statusCode: number = 200) => {
 				data: response,
 		  };
 };
+
+export const lenSlice = (str: string, len: number = 210): string =>
+	str.slice(0, len) + "...";

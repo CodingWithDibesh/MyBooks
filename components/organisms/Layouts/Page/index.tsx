@@ -20,11 +20,13 @@ export const PageLayout = ({ children }: IPageLayout) => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className="container">
+			<div className="fixed top-0 w-full pt-1 bg-white border-2">
 				<NavBar />
-				<div className="mt-2 mb-2">{children}</div>
-			</main>
-			<Footer />
+			</div>
+			<main className="container mt-20">{children}</main>
+			<div className="static bottom-0">
+				<Footer />
+			</div>
 		</>
 	);
 };

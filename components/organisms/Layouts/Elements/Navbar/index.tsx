@@ -8,7 +8,7 @@ export const NavBar = () => {
 	const isPathMatch = (path: string) => (path ? path === pathname : false);
 	return (
 		<>
-			<Navbar fluid={true} rounded={true}>
+			<Navbar>
 				<Navbar.Brand href="https://flowbite.com/">
 					<Icon
 						icon="twemoji:books"
