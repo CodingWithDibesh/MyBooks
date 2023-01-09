@@ -39,10 +39,9 @@ const BookPage = () => {
 										<p className="font-normal indent-8 text-gray-700 text-justify dark:text-gray-400 text-clip overflow-hidden">
 											Rich Dad Poor Dad is a personal
 											finance book that tells the story of
-											the author's two fathers: his
-											biological father, who was highly
-											educated but financially
-											unsuccessful, and his friend's
+											the two fathers: his biological
+											father, who was highly educated but
+											financially unsuccessful, and his
 											father, who was less educated but
 											financially successful. Through this
 											comparison, Kiyosaki discusses the
