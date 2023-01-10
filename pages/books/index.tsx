@@ -1,8 +1,14 @@
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { ListItem, SearchBar } from "../../components/atoms";
 import { PageLayout } from "../../components/organisms";
+import { fetchAllBooks, TBooks } from "../../services/books";
 
-const BooksPage = () => {
+type TBooksPage = {
+	books: TBooks;
+};
+
+const BooksPage = ({ books }: TBooksPage) => {
 	return (
 		<>
 			<Head>
@@ -12,18 +18,33 @@ const BooksPage = () => {
 				<div className="m-5">
 					<SearchBar />
 					<div className="grid md:grid-cols-2 gap-4 m-10">
-						<ListItem
-							// key={item}
-							imgSrc="/images/authors/Stan_Lee/The_Avengers.jpg"
-							title="The Avengers"
-							link="/books/avengers"
-							description="The Avengers are a team of superheroes created by writer Stan Lee and artist Jack Kirby. They first appeared in The Avengers #1 in 1963. The Avengers are a diverse group of superheroes who join forces to protect the world from threats that no single hero could handle alone."
-						/>
+						{books.map((book) => {
+							return (
+								<ListItem
+									key={book.id}
+									imgSrc={book.image}
+									title={book.title}
+									link={`/books/${book.title}`}
+									description={book.summary}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</PageLayout>
 		</>
 	);
+};
+
+export const getServerSideProps: GetServerSideProps = async (): Promise<{
+	props: { books: TBooks };
+}> => {
+	const books = await fetchAllBooks();
+	return {
+		props: {
+			books,
+		},
+	};
 };
 
 export default BooksPage;

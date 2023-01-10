@@ -3,23 +3,28 @@ import { z } from "zod";
 import { TSuccessResponse } from "../helper";
 
 const backendURL = process.env.BACKEND_URL;
-const ZAuthor = z.object({
+export const ZAuthorBasics = z.object({
 	id: z.number(),
 	name: z.string(),
 	books: z.number(),
 	bestSeller: z.string().array(),
 	image: z.string(),
 	bio: z.string().array(),
-	authorsBooks: z
-		.object({
-			id: z.number(),
-			title: z.string(),
-			image: z.string(),
-		})
-		.array(),
 });
+const ZAuthor = z
+	.object({
+		authorsBooks: z
+			.object({
+				id: z.number(),
+				title: z.string(),
+				image: z.string(),
+			})
+			.array(),
+	})
+	.merge(ZAuthorBasics);
+
 const ZAuthors = ZAuthor.array();
-const ZAuthorNames = z
+export const ZAuthorNames = z
 	.object({
 		params: z.object({
 			name: z.string(),
@@ -33,12 +38,13 @@ export type TAuthorNames = z.infer<typeof ZAuthorNames>;
 
 export const fetchAllAuthors = async (): Promise<TAuthors> => {
 	try {
-		const authors: TSuccessResponse<TAuthors> = await axios
-			.get(`${backendURL}/api/authors`)
-			.then((resp) => resp.data);
+		const { data: authors } = await axios.get<TSuccessResponse<TAuthors>>(
+			`${backendURL}/api/authors`
+		);
 		if (!authors.success) throw new Error("Problem Fetching data");
 		// Schema validation
 		const tempValidation = ZAuthors.safeParse(authors.data);
+		console.log("FETCH:Authors:", authors);
 		if (tempValidation.success) {
 			return tempValidation.data;
 		}
@@ -92,6 +98,7 @@ export const fetchAuthorByName = async (
 			.then((resp) => resp.data);
 		if (!author.success) throw new Error("Problem Fetching data");
 		// Schema validation
+		console.log("FETCH:Author:", author);
 		const tempValidation = ZAuthor.safeParse(author.data[0]);
 		if (tempValidation.success) {
 			return tempValidation.data;

@@ -8,32 +8,32 @@ import { Button } from "flowbite-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function PageNotFound() {
 	return (
 		<>
 			<Head>
-				<title>My Books | By Dibesh Raj Subedi</title>
+				<title>404 | My Books</title>
 			</Head>
 			<PageLayout isBottom>
 				<div className="m-5">
 					<div className="flex justify-center">
 						<Image
-							src="/images/flash/spiderman.jpg"
-							alt="flash image"
+							src="/images/carousel/spiderman_carousel_1.jpg"
+							alt="Carousel image"
 							width={500}
 							height={500}
 							style={{ width: "auto" }}
 						/>
 					</div>
-					<h3 className="text-center font-bold text-lg text-gray-600 mt-2">
-						Learn With Your Imagination
+					<h3 className="text-center font-bold text-xl text-gray-600 mt-4">
+						Oops! Page Not found
 					</h3>
 					<div className="flex justify-center mt-2">
-						<Link href="/books">
+						<Link href="/">
 							<Button color="gray" className="m-2">
-								Find your books
+								Back to Home
 								<Icon
-									icon="fxemoji:books"
+									icon="ic:round-home"
 									className="ml-2"
 									width={20}
 								/>

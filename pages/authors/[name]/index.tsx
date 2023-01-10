@@ -1,27 +1,45 @@
 import { Card } from "flowbite-react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "../../../components/atoms";
 import { PageLayout } from "../../../components/organisms";
-import {
-	fetchAllAuthorsName,
-	fetchAuthorByName,
-	TAuthor,
-} from "../../../services";
+import { lenSlice } from "../../../helper";
+import { fetchAuthorByName, TAuthor } from "../../../services";
 
 type TAuthorPage = {
 	author: TAuthor | null;
 };
 
 const AuthorPage = ({ author }: TAuthorPage) => {
-	console.log(author);
-
 	return (
 		<>
 			<Head>
 				<title>{author?.name} | My Books</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app/authors/${author?.name}`}
+				/>
+				<meta
+					name="description"
+					content={lenSlice(`${author?.bio[0]}`, 100)}
+				/>
+
+				<meta
+					property="og:description"
+					content={lenSlice(`${author?.bio[0]}`, 100)}
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${author?.image}`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${author?.image}`}
+				/>
 			</Head>
 			<PageLayout>
 				<div className="m-5 lg:m-20">
@@ -41,6 +59,10 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 										width={400}
 										height={200}
 										className="rounded-lg"
+										style={{
+											width: "auto",
+										}}
+										priority
 									/>
 								</div>
 							)}
@@ -90,6 +112,9 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 																src={item.image}
 																alt={item.title}
 																className="m-2"
+																style={{
+																	width: "auto",
+																}}
 																width={100}
 																height={100}
 															/>
@@ -109,17 +134,30 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 	);
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	//  This Fetches Details from the Server and Maps to dynamic route
-	// thus dynamic route param and paths prarms needs to be same
-	const paths = await fetchAllAuthorsName();
-	return {
-		paths,
-		fallback: false,
-	};
-};
+// export const getStaticPaths: GetStaticPaths = async () => {
+// 	//  This Fetches Details from the Server and Maps to dynamic route
+// 	// thus dynamic route param and paths prarms needs to be same
+// 	const paths = await fetchAllAuthorsName();
+// 	return {
+// 		paths,
+// 		fallback: false,
+// 	};
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+// export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+// 	const author = await fetchAuthorByName(params.name);
+// 	return {
+// 		props: {
+// 			author,
+// 		},
+// 	};
+// };
+
+export const getServerSideProps: GetServerSideProps = async ({
+	params,
+}: any): Promise<{
+	props: TAuthorPage;
+}> => {
 	const author = await fetchAuthorByName(params.name);
 	return {
 		props: {

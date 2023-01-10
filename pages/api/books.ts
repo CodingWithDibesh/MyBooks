@@ -52,7 +52,7 @@ export const bookDetails = ({
 	authorName,
 	authorId,
 	title,
-}: IBookDetails = {}): IBook[] => {
+}: IBookDetails = {}): IBook[] | IBook => {
 	const books = getAllBooks();
 	if (bookId) {
 		return books.filter((item) => item.id === bookId);
@@ -61,7 +61,7 @@ export const bookDetails = ({
 		return books.filter((item) => item.author.name === authorName);
 	}
 	if (title) {
-		return books.filter((item) => item.title === title);
+		return books.filter((item) => item.title === title)[0];
 	}
 	if (authorId) {
 		return books.filter((item) => item.author.id === authorId);

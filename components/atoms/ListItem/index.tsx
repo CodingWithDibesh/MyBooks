@@ -13,7 +13,7 @@ interface IListItem {
 export const ListItem = ({ title, imgSrc, description, link }: IListItem) => {
 	return (
 		<>
-			<Card imgSrc={imgSrc} horizontal={true}>
+			<Card imgSrc={imgSrc} horizontal={true} style={{ width: "auto" }}>
 				<h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 					{title}
 				</h5>

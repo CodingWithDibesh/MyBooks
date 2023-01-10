@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head";
 import { ListItem, SearchBar } from "../../components/atoms";
 import { PageLayout } from "../../components/organisms";
@@ -36,7 +36,19 @@ const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{
+// export const getStaticProps: GetStaticProps = async (): Promise<{
+// 	props: TAuthorPageProps;
+// }> => {
+// 	// Fetch All Authors and Send It on Data SO that It can be iterated
+// 	const authors = await fetchAllAuthors();
+// 	return {
+// 		props: {
+// 			authors,
+// 		},
+// 	};
+// };
+
+export const getServerSideProps: GetServerSideProps = async (): Promise<{
 	props: TAuthorPageProps;
 }> => {
 	// Fetch All Authors and Send It on Data SO that It can be iterated
