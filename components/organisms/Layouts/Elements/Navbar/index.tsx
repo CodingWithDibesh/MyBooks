@@ -9,7 +9,7 @@ export const NavBar = () => {
 	return (
 		<>
 			<Navbar>
-				<Navbar.Brand href="https://flowbite.com/">
+				<Navbar.Brand href="/">
 					<Icon
 						icon="twemoji:books"
 						width={28}

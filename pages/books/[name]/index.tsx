@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "../../../components/atoms";
 import { PageLayout } from "../../../components/organisms";
+import { lenSlice } from "../../../helper";
 import { fetchBookByName, TBook } from "../../../services";
 
 type TBookPage = {
@@ -16,6 +17,29 @@ const BookPage = ({ book }: TBookPage) => {
 		<>
 			<Head>
 				<title>{book?.title} | My Books</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app/books/${book?.title}`}
+				/>
+				<meta
+					name="description"
+					content={lenSlice(`${book?.summary}`, 100)}
+				/>
+
+				<meta
+					property="og:description"
+					content={lenSlice(`${book?.summary}`, 100)}
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${book?.image}`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${book?.image}`}
+				/>
 			</Head>
 			<PageLayout>
 				<div className="m-5 lg:m-20">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "../../../components/atoms";
 import { PageLayout } from "../../../components/organisms";
+import { lenSlice } from "../../../helper";
 import { fetchAuthorByName, TAuthor } from "../../../services";
 
 type TAuthorPage = {
@@ -16,6 +17,29 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 		<>
 			<Head>
 				<title>{author?.name} | My Books</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app/authors/${author?.name}`}
+				/>
+				<meta
+					name="description"
+					content={lenSlice(`${author?.bio[0]}`, 100)}
+				/>
+
+				<meta
+					property="og:description"
+					content={lenSlice(`${author?.bio[0]}`, 100)}
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${author?.image}`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app${author?.image}`}
+				/>
 			</Head>
 			<PageLayout>
 				<div className="m-5 lg:m-20">

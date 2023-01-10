@@ -4,9 +4,10 @@ import { Footer, NavBar } from "../Elements";
 
 interface IPageLayout {
 	children: any;
+	isBottom?: boolean;
 }
 
-export const PageLayout = ({ children }: IPageLayout) => {
+export const PageLayout = ({ children, isBottom = false }: IPageLayout) => {
 	return (
 		<>
 			<Head>
@@ -24,10 +25,15 @@ export const PageLayout = ({ children }: IPageLayout) => {
 				<NavBar />
 			</div>
 			<main className="container mt-20">{children}</main>
-			<div className="static bottom-0">
-				{/* <div className="fixed w-full bottom-0"> */}
-				<Footer />
-			</div>
+			{isBottom ? (
+				<div className="fixed w-full bottom-0">
+					<Footer />
+				</div>
+			) : (
+				<div className="static bottom-0">
+					<Footer />
+				</div>
+			)}
 		</>
 	);
 };
