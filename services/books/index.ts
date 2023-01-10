@@ -4,6 +4,7 @@ import { ZAuthorBasics } from "../author";
 import { TSuccessResponse } from "../helper";
 
 const backendURL = process.env.BACKEND_URL;
+
 const ZBook = z.object({
 	id: z.number(),
 	title: z.string(),
@@ -35,7 +36,7 @@ export const fetchAllBooks = async (): Promise<TBooks> => {
 		if (!books.success) throw new Error("Problem Fetching data");
 		// Schema validation
 		const tempValidation = ZBooks.safeParse(books.data);
-		console.log("FETCH:Books:", books);
+		console.log("FETCH:Books:");
 		if (tempValidation.success) {
 			return tempValidation.data;
 		}
@@ -77,18 +78,21 @@ export const fetchAllBooksName = async (): Promise<TBookNames> => {
 	}
 };
 
+export const reFetchBookByName = (): Promise<TBook> =>
+	axios.get(`${backendURL}/api/books?title=Rich Dad's CASHFLOW Quadrant`);
+
 export const fetchBookByName = async (
 	title: string | undefined
 ): Promise<TBook | null> => {
 	try {
 		if (!title) throw new Error("Error:Name field is Empty");
-		const book = await axios
-			.get(`${backendURL}/api/books?title=${title}`)
-			.then((resp) => resp.data);
+		const { data: book } = await axios.get<TSuccessResponse<TBook>>(
+			`${backendURL}/api/books?title=${title}`
+		);
 		if (!book.success) throw new Error("Problem Fetching data");
 		// Schema validation
-		console.log("FETCH:Books:", book);
-		const tempValidation = ZBook.safeParse(book.data[0]);
+		const tempValidation = ZBook.safeParse(book.data);
+		console.log("FETCH:Book:", tempValidation);
 		if (tempValidation.success) {
 			return tempValidation.data;
 		}

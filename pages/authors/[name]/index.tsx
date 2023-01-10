@@ -35,6 +35,10 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 										width={400}
 										height={200}
 										className="rounded-lg"
+										style={{
+											width: "auto",
+										}}
+										priority
 									/>
 								</div>
 							)}
