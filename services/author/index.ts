@@ -3,23 +3,28 @@ import { z } from "zod";
 import { TSuccessResponse } from "../helper";
 
 const backendURL = process.env.BACKEND_URL;
-const ZAuthor = z.object({
+export const ZAuthorBasics = z.object({
 	id: z.number(),
 	name: z.string(),
 	books: z.number(),
 	bestSeller: z.string().array(),
 	image: z.string(),
 	bio: z.string().array(),
-	authorsBooks: z
-		.object({
-			id: z.number(),
-			title: z.string(),
-			image: z.string(),
-		})
-		.array(),
 });
+const ZAuthor = z
+	.object({
+		authorsBooks: z
+			.object({
+				id: z.number(),
+				title: z.string(),
+				image: z.string(),
+			})
+			.array(),
+	})
+	.merge(ZAuthorBasics);
+
 const ZAuthors = ZAuthor.array();
-const ZAuthorNames = z
+export const ZAuthorNames = z
 	.object({
 		params: z.object({
 			name: z.string(),
