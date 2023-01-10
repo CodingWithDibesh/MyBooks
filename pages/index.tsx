@@ -13,6 +13,24 @@ export default function Home() {
 		<>
 			<Head>
 				<title>My Books | By Dibesh Raj Subedi</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app`}
+				/>
+				<meta
+					property="og:description"
+					content="A simple books app to understand NextJS, SSR, SSG, CSR and ReactQuery for SSR and SSG"
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/flash/spiderman.jpg`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/flash/spiderman.jpg`}
+				/>
 			</Head>
 			<PageLayout isBottom>
 				<div className="m-5">
