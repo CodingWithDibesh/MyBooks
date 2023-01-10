@@ -1,23 +1,17 @@
 import { Card } from "flowbite-react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "../../../components/atoms";
 import { PageLayout } from "../../../components/organisms";
-import {
-	fetchAllAuthorsName,
-	fetchAuthorByName,
-	TAuthor,
-} from "../../../services";
+import { fetchAuthorByName, TAuthor } from "../../../services";
 
 type TAuthorPage = {
 	author: TAuthor | null;
 };
 
 const AuthorPage = ({ author }: TAuthorPage) => {
-	console.log(author);
-
 	return (
 		<>
 			<Head>
@@ -90,6 +84,9 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 																src={item.image}
 																alt={item.title}
 																className="m-2"
+																style={{
+																	width: "auto",
+																}}
 																width={100}
 																height={100}
 															/>
@@ -109,17 +106,30 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 	);
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	//  This Fetches Details from the Server and Maps to dynamic route
-	// thus dynamic route param and paths prarms needs to be same
-	const paths = await fetchAllAuthorsName();
-	return {
-		paths,
-		fallback: false,
-	};
-};
+// export const getStaticPaths: GetStaticPaths = async () => {
+// 	//  This Fetches Details from the Server and Maps to dynamic route
+// 	// thus dynamic route param and paths prarms needs to be same
+// 	const paths = await fetchAllAuthorsName();
+// 	return {
+// 		paths,
+// 		fallback: false,
+// 	};
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+// export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+// 	const author = await fetchAuthorByName(params.name);
+// 	return {
+// 		props: {
+// 			author,
+// 		},
+// 	};
+// };
+
+export const getServerSideProps: GetServerSideProps = async ({
+	params,
+}: any): Promise<{
+	props: TAuthorPage;
+}> => {
 	const author = await fetchAuthorByName(params.name);
 	return {
 		props: {

@@ -33,12 +33,13 @@ export type TAuthorNames = z.infer<typeof ZAuthorNames>;
 
 export const fetchAllAuthors = async (): Promise<TAuthors> => {
 	try {
-		const authors: TSuccessResponse<TAuthors> = await axios
-			.get(`${backendURL}/api/authors`)
-			.then((resp) => resp.data);
+		const { data: authors } = await axios.get<TSuccessResponse<TAuthors>>(
+			`${backendURL}/api/authors`
+		);
 		if (!authors.success) throw new Error("Problem Fetching data");
 		// Schema validation
 		const tempValidation = ZAuthors.safeParse(authors.data);
+		console.log("FETCH:Authors:", authors);
 		if (tempValidation.success) {
 			return tempValidation.data;
 		}
@@ -92,6 +93,7 @@ export const fetchAuthorByName = async (
 			.then((resp) => resp.data);
 		if (!author.success) throw new Error("Problem Fetching data");
 		// Schema validation
+		console.log("FETCH:Author:", author);
 		const tempValidation = ZAuthor.safeParse(author.data[0]);
 		if (tempValidation.success) {
 			return tempValidation.data;
