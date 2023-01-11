@@ -88,6 +88,10 @@ export const fetchAllAuthorsName = async (): Promise<TAuthorNames> => {
 	}
 };
 
+export const rqAuthorByName = (name: string) => {
+	return axios.get(`/api/authors?name=${name}`).then((resp) => resp.data);
+};
+
 export const fetchAuthorByName = async (
 	name: string | undefined
 ): Promise<TAuthor | null> => {

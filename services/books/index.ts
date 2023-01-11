@@ -78,8 +78,9 @@ export const fetchAllBooksName = async (): Promise<TBookNames> => {
 	}
 };
 
-export const reFetchBookByName = (): Promise<TBook> =>
-	axios.get(`${backendURL}/api/books?title=Rich Dad's CASHFLOW Quadrant`);
+export const reFetchBookByName = (name: string) => {
+	return axios.get(`/api/books?title=${name}`).then((resp) => resp.data);
+};
 
 export const fetchBookByName = async (
 	title: string | undefined
@@ -87,7 +88,7 @@ export const fetchBookByName = async (
 	try {
 		if (!title) throw new Error("Error:Name field is Empty");
 		const { data: book } = await axios.get<TSuccessResponse<TBook>>(
-			`${backendURL}/api/books?title=${title}`
+			`${backendURL}/api/books?match=true&title=${title}`
 		);
 		if (!book.success) throw new Error("Problem Fetching data");
 		// Schema validation
