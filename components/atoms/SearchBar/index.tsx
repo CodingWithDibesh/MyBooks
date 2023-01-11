@@ -1,21 +1,44 @@
 import { Icon } from "@iconify/react";
+import { Dispatch, SetStateAction } from "react";
 
-export const SearchBar = () => {
+interface ISearchBar {
+	handelSubmit?: (e: any) => void;
+	text: string;
+	setText: Dispatch<SetStateAction<string>>;
+	onClear?: (e: any) => void;
+}
+
+export const SearchBar = ({
+	handelSubmit = (e) => {
+		e.preventDefault();
+	},
+	text,
+	setText,
+	onClear,
+}: ISearchBar) => {
 	return (
 		<>
 			<div className="m-7">
-				<form className="flex items-center">
+				<form onSubmit={handelSubmit} className="flex items-center">
 					<label htmlFor="simple-search" className="sr-only">
-						Search Authors
+						Search
 					</label>
-					<div className="w-full">
+					<div className="w-full relative">
 						<input
 							type="text"
 							id="simple-search"
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 							placeholder="Search"
-							required
+							onChange={(e) => setText(e.target.value)}
+							value={text}
 						/>
+						{text && (
+							<Icon
+								onClick={onClear}
+								icon="flat-color-icons:clear-filters"
+								className="absolute right-3 top-3 cursor-pointer"
+							/>
+						)}
 					</div>
 					<button
 						type="submit"

@@ -78,8 +78,9 @@ export const fetchAllBooksName = async (): Promise<TBookNames> => {
 	}
 };
 
-export const reFetchBookByName = (): Promise<TBook> =>
-	axios.get(`${backendURL}/api/books?title=Rich Dad's CASHFLOW Quadrant`);
+export const reFetchBookByName = (name: string) => {
+	return axios.get(`/api/books?title=${name}`).then((resp) => resp.data);
+};
 
 export const fetchBookByName = async (
 	title: string | undefined

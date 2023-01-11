@@ -21,7 +21,7 @@ export const PageLayout = ({ children, isBottom = false }: IPageLayout) => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<div className="fixed top-0 w-full pt-1 bg-white border-2">
+			<div className="fixed top-0 w-full pt-1 bg-white border-2 z-10">
 				<NavBar />
 			</div>
 			<main className="container mt-20">{children}</main>
