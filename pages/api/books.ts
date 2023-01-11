@@ -13,6 +13,7 @@ interface IBookDetails {
 	authorName?: string;
 	title?: string;
 	authorId?: number;
+	matchBook?: boolean;
 }
 
 interface IBook {
@@ -57,6 +58,7 @@ export const bookDetails = ({
 	authorName,
 	authorId,
 	title,
+	matchBook = false,
 }: IBookDetails = {}): IBook[] | IBook => {
 	const books = getAllBooks();
 	if (bookId) {
@@ -68,9 +70,12 @@ export const bookDetails = ({
 		);
 	}
 	if (title) {
-		return books.filter((item) =>
-			item.title.toLowerCase().includes(title.toLowerCase())
-		);
+		if (matchBook) return books.filter((item) => item.title === title)[0];
+		else {
+			return books.filter((item) =>
+				item.title.toLowerCase().includes(title.toLowerCase())
+			);
+		}
 	}
 	if (authorId) {
 		return books.filter((item) => item.author.id === authorId);
@@ -82,6 +87,8 @@ export default function handler(
 	req: NextApiRequest,
 	resp: NextApiResponse<IResponse<IBook>>
 ) {
+	console.log(req.query);
+
 	if (!isObjEmpty(req.query)) {
 		if (req.query.bookId) {
 			resp.status(200).json(
@@ -98,9 +105,21 @@ export default function handler(
 			);
 			return;
 		} else if (req.query.title) {
-			resp.status(200).json(
-				responseHandler(bookDetails({ title: `${req.query.title}` }))
-			);
+			if (req.query.match)
+				resp.status(200).json(
+					responseHandler(
+						bookDetails({
+							title: `${req.query.title}`,
+							matchBook: true,
+						})
+					)
+				);
+			else
+				resp.status(200).json(
+					responseHandler(
+						bookDetails({ title: `${req.query.title}` })
+					)
+				);
 			return;
 		} else if (req.query.authorId) {
 			resp.status(200).json(

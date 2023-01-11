@@ -88,7 +88,7 @@ export const fetchBookByName = async (
 	try {
 		if (!title) throw new Error("Error:Name field is Empty");
 		const { data: book } = await axios.get<TSuccessResponse<TBook>>(
-			`${backendURL}/api/books?title=${title}`
+			`${backendURL}/api/books?match=true&title=${title}`
 		);
 		if (!book.success) throw new Error("Problem Fetching data");
 		// Schema validation

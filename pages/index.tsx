@@ -32,31 +32,40 @@ export default function Home() {
 					content={`https://mybooks-itsubedibesh.vercel.app/images/flash/spiderman.jpg`}
 				/>
 			</Head>
-			<PageLayout isBottom>
+			<PageLayout>
 				<div className="m-5">
 					<div className="flex justify-center">
 						<Image
 							src="/images/flash/spiderman.jpg"
 							alt="flash image"
-							width={500}
-							height={500}
+							width={400}
+							height={400}
 							style={{ width: "auto" }}
 						/>
 					</div>
-					<h3 className="text-center font-bold text-lg text-gray-600 mt-2">
-						Learn With Your Imagination
-					</h3>
-					<div className="flex justify-center mt-2">
-						<Link href="/books">
-							<Button color="gray" className="m-2">
-								Find your books
-								<Icon
-									icon="fxemoji:books"
-									className="ml-2"
-									width={20}
-								/>
-							</Button>
-						</Link>
+					<div className="mt-2 grid grid-rows-1 gap-2 justify-center">
+						<div className="flex">
+							<Link href="/books">
+								<Button color="gray" className="m-2">
+									Find your books
+									<Icon
+										icon="fxemoji:books"
+										className="ml-2"
+										width={20}
+									/>
+								</Button>
+							</Link>
+							<Link href="/authors">
+								<Button color="gray" className="m-2">
+									Find your authors
+									<Icon
+										icon="material-symbols:note-alt-outline"
+										className="ml-2"
+										width={20}
+									/>
+								</Button>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</PageLayout>
