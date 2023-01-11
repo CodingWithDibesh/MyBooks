@@ -40,6 +40,29 @@ const BooksPage = ({ books }: TBooksPage) => {
 		<>
 			<Head>
 				<title>Books | My Books</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app/books`}
+				/>
+				<meta
+					name="description"
+					content="Magnificent stories are waiting your screen. Just click the button to read more."
+				/>
+
+				<meta
+					property="og:description"
+					content="Magnificent stories are waiting your screen. Just click the button to read more."
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/authors/Stan_Lee/The_Avengers.jpg`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/authors/Stan_Lee/The_Avengers.jpg`}
+				/>
 			</Head>
 			<PageLayout isBottom={booksList && booksList?.length < 3}>
 				<div className="m-5">

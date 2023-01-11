@@ -46,6 +46,29 @@ const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 		<>
 			<Head>
 				<title>Authors | My Books</title>
+				<meta
+					property="og:url"
+					content={`https://mybooks-itsubedibesh.vercel.app/authors`}
+				/>
+				<meta
+					name="description"
+					content="Know your favorite authors and their stories, you are just a click away from their magnificent stories."
+				/>
+
+				<meta
+					property="og:description"
+					content="Know your favorite authors and their stories, you are just a click away from their magnificent stories."
+				/>
+				<meta name="keywords" content={"Authors, Books, Info"} />
+				<meta
+					property="og:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/authors/Stan_Lee/Stan_Lee.jpeg`}
+				/>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:image"
+					content={`https://mybooks-itsubedibesh.vercel.app/images/authors/Stan_Lee/Stan_Lee.jpeg`}
+				/>
 			</Head>
 			<PageLayout isBottom={authorsList && authorsList?.length < 3}>
 				<div className="m-5">
