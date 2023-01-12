@@ -3,7 +3,7 @@ import { z } from "zod";
 import { ZAuthorBasics } from "../author";
 import { TSuccessResponse } from "../helper";
 
-const backendURL = process.env.BACKEND_URL;
+const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const ZBook = z.object({
 	id: z.number(),
