@@ -20,7 +20,7 @@ const BooksPage = ({ books }: TBooksPage) => {
 		fetchAllBooks,
 		{
 			initialData: books,
-			staleTime: 5e3,
+			staleTime: 5e5,
 			refetchOnMount: false,
 			refetchOnWindowFocus: false,
 		}
@@ -39,7 +39,7 @@ const BooksPage = ({ books }: TBooksPage) => {
 		reFetchBookByName.bind(this, debounceSearch),
 		{
 			enabled: Boolean(debounceSearch),
-			staleTime: 5e3,
+			staleTime: 5e5,
 			refetchOnMount: false,
 			refetchOnWindowFocus: false,
 		}

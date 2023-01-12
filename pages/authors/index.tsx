@@ -2,27 +2,43 @@ import { Icon } from "@iconify/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import {
+	dehydrate,
+	DehydratedState,
+	QueryClient,
+	useQuery,
+	UseQueryResult,
+} from "react-query";
 import { ListItem, SearchBar } from "../../components/atoms";
 import { PageLayout } from "../../components/organisms";
 import { useDebounce } from "../../hooks";
 import {
-	fetchAllAuthors,
+	fetchAuthors,
 	rqAuthorByName,
 	TAuthor,
 	TAuthors,
 } from "../../services";
 import { TSuccessResponse } from "../../services/helper";
 
-type TAuthorPageProps = {
-	authors: TAuthors;
-};
+const AuthorsPage = () => {
+	// Caching Data using Hydration Method Using ReactQuery
+	const authorRq: UseQueryResult<
+		TSuccessResponse<TAuthors>,
+		Error
+	> = useQuery<TSuccessResponse<TAuthors>, Error>(
+		"AllAuthors",
+		fetchAuthors,
+		{
+			staleTime: 5e5,
+			refetchOnMount: false,
+			refetchOnWindowFocus: false,
+		}
+	);
 
-const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 	const [authorsList, setAuthorsList] = useState<TAuthors>();
 	const [searchAuthor, setSearchAuthor] = useState("");
 	const onClear = async (e: any) => {
-		setAuthorsList(authors);
+		setAuthorsList(authorRq.data?.data);
 		setSearchAuthor("");
 	};
 	const debounceSearch = useDebounce(searchAuthor, 6e2);
@@ -31,7 +47,7 @@ const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 		rqAuthorByName.bind(this, debounceSearch),
 		{
 			enabled: Boolean(debounceSearch),
-			staleTime: 5e3,
+			staleTime: 5e5,
 			refetchOnMount: false,
 			refetchOnWindowFocus: false,
 		}
@@ -39,8 +55,8 @@ const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 
 	useEffect(() => {
 		if (data) setAuthorsList(data.data);
-		else setAuthorsList(authors);
-	}, [authors, data]);
+		else setAuthorsList(authorRq.data?.data);
+	}, [authorRq.data, data]);
 
 	return (
 		<>
@@ -121,13 +137,14 @@ const AuthorsPage = ({ authors }: TAuthorPageProps) => {
 // };
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
-	props: TAuthorPageProps;
+	props: { dehydratedState: DehydratedState };
 }> => {
 	// Fetch All Authors and Send It on Data SO that It can be iterated
-	const authors = await fetchAllAuthors();
+	const queryClient = new QueryClient();
+	await queryClient.prefetchQuery("AllAuthors", fetchAuthors);
 	return {
 		props: {
-			authors,
+			dehydratedState: dehydrate(queryClient),
 		},
 	};
 };

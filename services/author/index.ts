@@ -2,7 +2,7 @@ import axios from "axios";
 import { z } from "zod";
 import { TSuccessResponse } from "../helper";
 
-const backendURL = process.env.BACKEND_URL;
+const backendURL = process.env.NEXT_PUBLIC_BACKEND_URL;
 export const ZAuthorBasics = z.object({
 	id: z.number(),
 	name: z.string(),
@@ -35,6 +35,9 @@ export const ZAuthorNames = z
 export type TAuthors = z.infer<typeof ZAuthors>;
 export type TAuthor = z.infer<typeof ZAuthor>;
 export type TAuthorNames = z.infer<typeof ZAuthorNames>;
+
+export const fetchAuthors = async () =>
+	fetch(`${backendURL}/api/authors`).then((res) => res.json());
 
 export const fetchAllAuthors = async (): Promise<TAuthors> => {
 	try {
