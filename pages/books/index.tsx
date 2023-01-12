@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, UseQueryResult } from "react-query";
 import { ListItem, SearchBar } from "../../components/atoms";
 import { PageLayout } from "../../components/organisms";
 import { useDebounce } from "../../hooks";
@@ -14,6 +14,18 @@ type TBooksPage = {
 };
 
 const BooksPage = ({ books }: TBooksPage) => {
+	// Caching Data in Next: Using Initial Data method:
+	const rq: UseQueryResult<TBooks, Error> = useQuery<TBooks, Error>(
+		"AllBooks",
+		fetchAllBooks,
+		{
+			initialData: books,
+			staleTime: 5e5,
+			refetchOnMount: false,
+			refetchOnWindowFocus: false,
+		}
+	);
+
 	const [booksList, setBooksList] = useState<TBooks>();
 	const [searchBooks, setSearchBooks] = useState("");
 	const onClear = async (e: any) => {
@@ -21,12 +33,13 @@ const BooksPage = ({ books }: TBooksPage) => {
 		setSearchBooks("");
 	};
 	const debounceSearch = useDebounce(searchBooks, 6e2);
+	// Caching data normally for every search query
 	const { data } = useQuery<TSuccessResponse<TBooks>>(
 		"Fetch_Book_" + debounceSearch,
 		reFetchBookByName.bind(this, debounceSearch),
 		{
 			enabled: Boolean(debounceSearch),
-			staleTime: 5e3,
+			staleTime: 5e5,
 			refetchOnMount: false,
 			refetchOnWindowFocus: false,
 		}
@@ -34,8 +47,9 @@ const BooksPage = ({ books }: TBooksPage) => {
 
 	useEffect(() => {
 		if (data) setBooksList(data.data);
+		else if (rq.data) setBooksList(rq.data);
 		else setBooksList(books);
-	}, [books, data]);
+	}, [books, data, rq]);
 	return (
 		<>
 			<Head>
@@ -102,10 +116,12 @@ const BooksPage = ({ books }: TBooksPage) => {
 export const getServerSideProps: GetServerSideProps = async (): Promise<{
 	props: { books: TBooks };
 }> => {
-	const books = await fetchAllBooks();
+	const books = await fetch(
+		`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/books`
+	).then((res) => res.json());
 	return {
 		props: {
-			books,
+			books: books.data,
 		},
 	};
 };
