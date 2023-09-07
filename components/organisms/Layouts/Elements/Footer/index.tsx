@@ -14,6 +14,9 @@ export const Footer = () => {
 								alt="My Book Logo"
 								name="My Books"
 							/>
+							<div>
+								Learning never ends
+							</div>
 						</div>
 						<div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
 							<div>
@@ -24,7 +27,7 @@ export const Footer = () => {
 								</FT.LinkGroup>
 							</div>
 							<div>
-								<FT.Title title="Follow us" />
+								<FT.Title title="Follow me" />
 								<FT.LinkGroup col={true}>
 									<FT.Link
 										href="https://github.com/itSubeDibesh/MyBooks"
@@ -43,11 +46,14 @@ export const Footer = () => {
 								</FT.LinkGroup>
 							</div>
 							<div>
-								<FT.Title title="Legal" />
+								<FT.Title title="My Articles" />
 								<FT.LinkGroup col={true}>
-									<FT.Link href="#">Privacy Policy</FT.Link>
-									<FT.Link href="#">
-										Terms & Conditions
+									<FT.Link
+										href="https://medium.com/@itsubedibesh"
+										target="_blank"
+										rel="noreferrer"
+									>
+										Medium
 									</FT.Link>
 								</FT.LinkGroup>
 							</div>
