@@ -32,7 +32,7 @@ export default function Home() {
 					content={`https://mybooks-itsubedibesh.vercel.app/images/flash/spiderman.jpg`}
 				/>
 			</Head>
-			<PageLayout>
+			<PageLayout isBottom>
 				<div className="m-5">
 					<div className="flex justify-center">
 						<Image
