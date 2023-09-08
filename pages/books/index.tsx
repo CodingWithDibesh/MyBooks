@@ -86,7 +86,7 @@ const BooksPage = ({ books }: TBooksPage) => {
 						text={searchBooks}
 					/>
 					{booksList && booksList.length > 0 ? (
-						<div className="grid md:grid-cols-2 gap-4 m-10">
+						<div className="grid md:grid-cols-2 gap-4">
 							{booksList.map((book) => {
 								return (
 									<ListItem
