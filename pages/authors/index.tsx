@@ -94,7 +94,7 @@ const AuthorsPage = () => {
 						setText={setSearchAuthor}
 					/>
 					{authorsList && authorsList.length > 0 ? (
-						<div className="grid md:grid-cols-2 gap-4 m-10">
+						<div className="grid md:grid-cols-2 gap-4">
 							{authorsList.map((author: TAuthor) => {
 								return (
 									<ListItem

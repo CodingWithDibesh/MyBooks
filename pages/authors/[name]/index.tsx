@@ -66,7 +66,7 @@ const AuthorPage = ({ author }: TAuthorPage) => {
 									/>
 								</div>
 							)}
-							<div className="mt-5 mr-10">
+							<div className="mt-5">
 								<div className="grid md:grid-col-1">
 									<div>
 										<h3 className="text-3xl mb-2 font-bold tracking-tight text-gray-900 dark:text-white">
