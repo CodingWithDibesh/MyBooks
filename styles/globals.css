@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.react-confirm-alert-overlay{
+    background: rgb(122 122 122 / 58%)  !important;
+}
