@@ -18,7 +18,7 @@ export const SearchBar = ({
 }: ISearchBar) => {
 	return (
 		<>
-			<div className="m-7">
+			<div className="my-7">
 				<form onSubmit={handelSubmit} className="flex items-center">
 					<label htmlFor="simple-search" className="sr-only">
 						Search
