@@ -6,7 +6,7 @@ export const Footer = () => {
 		<>
 			<FT container={true}>
 				<div className="w-full">
-					<div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
+					<div className="grid w-full justify-between gap-4 sm:flex sm:justify-between md:flex md:grid-cols-1">
 						<div>
 							<FT.Brand
 								href="/"
@@ -18,7 +18,7 @@ export const Footer = () => {
 								Learning never ends
 							</div>
 						</div>
-						<div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+						<div className="flex flex-cols-2 gap-8 sm:mt-4 sm:flex-cols-3 sm:gap-6">
 							<div>
 								<FT.Title title="Site Map" />
 								<FT.LinkGroup col={true}>

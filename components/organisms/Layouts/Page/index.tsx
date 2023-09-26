@@ -22,11 +22,11 @@ export const PageLayout = ({ children, isBottom = false }: IPageLayout) => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="w-full h-screen">
-				<div className="sticky top-0 left-0 w-full pt-1 bg-white border-2 z-10">
+				<div className={`${!isBottom ? "fixed top-0" :"top-0"} left-0 w-full pt-1 bg-white border-2 z-10`}>
 					<NavBar />
 				</div>
-				<main className="container">{children}</main>
-				<div className={isBottom ? "fixed bottom-0 left-0 w-full" : "sticky bottom-0"}>
+				<main className={` ${!isBottom?"mt-20":""} container`}>{children}</main>
+				<div className={isBottom ? "fixed bottom-0 left-0 w-full" : "bottom-0"}>
 					<Footer />
 				</div>
 			</div>
