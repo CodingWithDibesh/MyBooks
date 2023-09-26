@@ -1,7 +1,7 @@
 {
   "name": "My Book",
   "short_name": "My Book",
-  "theme_color": "#F4900C",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "description": "A simple books app to understand NextJS, SSR, SSG, CSR and ReactQuery for SSR and SSG",
   "icons": [
@@ -19,7 +19,7 @@
     }
   ],
   "display": "standalone",
-  "display_override": ["fullscreen", "minimal-ui"],
+  "display_override": ["minimal-ui"],
   "orientation": "portrait",
   "start_url": "/",
   "id": "/",

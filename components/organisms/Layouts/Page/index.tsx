@@ -25,7 +25,7 @@ export const PageLayout = ({ children, isBottom = false }: IPageLayout) => {
 				<div className={`${!isBottom ? "fixed top-0" :"top-0"} left-0 w-full pt-1 bg-white border-2 z-10`}>
 					<NavBar />
 				</div>
-				<main className={` ${isBottom?"":"mt-20"} container`}>{children}</main>
+				<main className={` ${!isBottom?"mt-20":""} container`}>{children}</main>
 				<div className={isBottom ? "fixed bottom-0 left-0 w-full" : "bottom-0"}>
 					<Footer />
 				</div>

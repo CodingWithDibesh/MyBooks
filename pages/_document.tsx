@@ -14,7 +14,7 @@ export default function Document() {
         <link rel='apple-touch-startup-image' href='/icons/apple-touch-icon.png' />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
-        <meta name="theme-color" content="#F4900C" />
+        <meta name="theme-color" content="#ffffff" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
